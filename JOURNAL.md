@@ -5,315 +5,268 @@ description: "This is an example description. Lorem ipsum dolor sit amet, consec
 repository_url: "https://github.com/person20020/journals-site-test"
 show_on_site: true
 ---
-<!--Taken from https://github.com/mxstbr/markdown-test-file for testing-->
 
-# Markdown: Syntax
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6
 
-*   [Overview](#overview)
-    *   [Philosophy](#philosophy)
-    *   [Inline HTML](#html)
-    *   [Automatic Escaping for Special Characters](#autoescape)
-*   [Block Elements](#block)
-    *   [Paragraphs and Line Breaks](#p)
-    *   [Headers](#header)
-    *   [Blockquotes](#blockquote)
-    *   [Lists](#list)
-    *   [Code Blocks](#precode)
-    *   [Horizontal Rules](#hr)
-*   [Span Elements](#span)
-    *   [Links](#link)
-    *   [Emphasis](#em)
-    *   [Code](#code)
-    *   [Images](#img)
-*   [Miscellaneous](#misc)
-    *   [Backslash Escapes](#backslash)
-    *   [Automatic Links](#autolink)
+---
 
+## Emphasis
 
-**Note:** This document is itself written using Markdown; you
-can [see the source for it by adding '.text' to the URL](/projects/markdown/syntax.text).
+Regular text, **bold text**, *italic text*, ***bold and italic***, ~~strikethrough~~, and `inline code`.
 
-----
+---
 
-## Overview
+## Blockquotes
 
-### Philosophy
+> Single-level blockquote.
 
-Markdown is intended to be as easy-to-read and easy-to-write as is feasible.
+> Nested blockquotes:
+> > Level two.
+> > > Level three.
 
-Readability, however, is emphasized above all else. A Markdown-formatted
-document should be publishable as-is, as plain text, without looking
-like it's been marked up with tags or formatting instructions. While
-Markdown's syntax has been influenced by several existing text-to-HTML
-filters -- including [Setext](http://docutils.sourceforge.net/mirror/setext.html), [atx](http://www.aaronsw.com/2002/atx/), [Textile](http://textism.com/tools/textile/), [reStructuredText](http://docutils.sourceforge.net/rst.html),
-[Grutatext](http://www.triptico.com/software/grutatxt.html), and [EtText](http://ettext.taint.org/doc/) -- the single biggest source of
-inspiration for Markdown's syntax is the format of plain text email.
-
-## Block Elements
-
-### Paragraphs and Line Breaks
-
-A paragraph is simply one or more consecutive lines of text, separated
-by one or more blank lines. (A blank line is any line that looks like a
-blank line -- a line containing nothing but spaces or tabs is considered
-blank.) Normal paragraphs should not be indented with spaces or tabs.
-
-The implication of the "one or more consecutive lines of text" rule is
-that Markdown supports "hard-wrapped" text paragraphs. This differs
-significantly from most other text-to-HTML formatters (including Movable
-Type's "Convert Line Breaks" option) which translate every line break
-character in a paragraph into a `<br />` tag.
-
-When you *do* want to insert a `<br />` break tag using Markdown, you
-end a line with two or more spaces, then type return.
-
-### Headers
-
-Markdown supports two styles of headers, [Setext] [1] and [atx] [2].
-
-Optionally, you may "close" atx-style headers. This is purely
-cosmetic -- you can use this if you think it looks better. The
-closing hashes don't even need to match the number of hashes
-used to open the header. (The number of opening hashes
-determines the header level.)
-
-
-### Blockquotes
-
-Markdown uses email-style `>` characters for blockquoting. If you're
-familiar with quoting passages of text in an email message, then you
-know how to create a blockquote in Markdown. It looks best if you hard
-wrap the text and put a `>` before every line:
-
-> This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
-> consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
-> Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
-> 
-> Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
-> id sem consectetuer libero luctus adipiscing.
-
-Markdown allows you to be lazy and only put the `>` before the first
-line of a hard-wrapped paragraph:
-
-> This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
-consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
-Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
-
-> Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
-id sem consectetuer libero luctus adipiscing.
-
-Blockquotes can be nested (i.e. a blockquote-in-a-blockquote) by
-adding additional levels of `>`:
-
-> This is the first level of quoting.
+> Multiline blockquote.
+> Still the same quote.
 >
-> > This is nested blockquote.
->
-> Back to the first level.
+> New paragraph inside blockquote.
 
-Blockquotes can contain other Markdown elements, including headers, lists,
-and code blocks:
+---
 
-> ## This is a header.
-> 
-> 1.   This is the first list item.
-> 2.   This is the second list item.
-> 
-> Here's some example code:
-> 
->     return shell_exec("echo $input | $markdown_script");
+## Lists
 
-Any decent text editor should make email-style quoting easy. For
-example, with BBEdit, you can make a selection and choose Increase
-Quote Level from the Text menu.
+### Unordered
 
+- Item one
+- Item two
+  - Nested item A
+  - Nested item B
+    - Deeply nested
+- Item three
 
-### Lists
+### Ordered
 
-Markdown supports ordered (numbered) and unordered (bulleted) lists.
+1. First
+2. Second
+   1. Nested first
+   2. Nested second
+3. Third
 
-Unordered lists use asterisks, pluses, and hyphens -- interchangably
--- as list markers:
+### Task List
 
-*   Red
-*   Green
-*   Blue
+- [x] Completed task
+- [ ] Incomplete task
+- [x] Another done
+- [ ] Another todo
 
-is equivalent to:
+---
 
-+   Red
-+   Green
-+   Blue
+## Code
 
-and:
+### Inline
 
--   Red
--   Green
--   Blue
+Use `console.log("hello")` to print.
 
-Ordered lists use numbers followed by periods:
-
-1.  Bird
-2.  McHale
-3.  Parish
-
-It's important to note that the actual numbers you use to mark the
-list have no effect on the HTML output Markdown produces. The HTML
-Markdown produces from the above list is:
-
-If you instead wrote the list in Markdown like this:
-
-1.  Bird
-1.  McHale
-1.  Parish
-
-or even:
-
-3. Bird
-1. McHale
-8. Parish
-
-you'd get the exact same HTML output. The point is, if you want to,
-you can use ordinal numbers in your ordered Markdown lists, so that
-the numbers in your source match the numbers in your published HTML.
-But if you want to be lazy, you don't have to.
-
-To make lists look nice, you can wrap items with hanging indents:
-
-*   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-    Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
-    viverra nec, fringilla in, laoreet vitae, risus.
-*   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
-    Suspendisse id sem consectetuer libero luctus adipiscing.
-
-But if you want to be lazy, you don't have to:
-
-*   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
-viverra nec, fringilla in, laoreet vitae, risus.
-*   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
-Suspendisse id sem consectetuer libero luctus adipiscing.
-
-List items may consist of multiple paragraphs. Each subsequent
-paragraph in a list item must be indented by either 4 spaces
-or one tab:
-
-1.  This is a list item with two paragraphs. Lorem ipsum dolor
-    sit amet, consectetuer adipiscing elit. Aliquam hendrerit
-    mi posuere lectus.
-
-    Vestibulum enim wisi, viverra nec, fringilla in, laoreet
-    vitae, risus. Donec sit amet nisl. Aliquam semper ipsum
-    sit amet velit.
-
-2.  Suspendisse id sem consectetuer libero luctus adipiscing.
-
-It looks nice if you indent every line of the subsequent
-paragraphs, but here again, Markdown will allow you to be
-lazy:
-
-*   This is a list item with two paragraphs.
-
-    This is the second paragraph in the list item. You're
-only required to indent the first line. Lorem ipsum dolor
-sit amet, consectetuer adipiscing elit.
-
-*   Another item in the same list.
-
-To put a blockquote within a list item, the blockquote's `>`
-delimiters need to be indented:
-
-*   A list item with a blockquote:
-
-    > This is a blockquote
-    > inside a list item.
-
-To put a code block within a list item, the code block needs
-to be indented *twice* -- 8 spaces or two tabs:
-
-*   A list item with a code block:
-
-        <code goes here>
-
-### Code Blocks
-
-Pre-formatted code blocks are used for writing about programming or
-markup source code. Rather than forming normal paragraphs, the lines
-of a code block are interpreted literally. Markdown wraps a code block
-in both `<pre>` and `<code>` tags.
-
-To produce a code block in Markdown, simply indent every line of the
-block by at least 4 spaces or 1 tab.
-
-This is a normal paragraph:
-
-    This is a code block.
-
-Here is an example of AppleScript:
-
-    tell application "Foo"
-        beep
-    end tell
-
-A code block continues until it reaches a line that is not indented
-(or the end of the article).
-
-Within a code block, ampersands (`&`) and angle brackets (`<` and `>`)
-are automatically converted into HTML entities. This makes it very
-easy to include example HTML source code using Markdown -- just paste
-it and indent it, and Markdown will handle the hassle of encoding the
-ampersands and angle brackets. For example, this:
-
-    <div class="footer">
-        &copy; 2004 Foo Corporation
-    </div>
-
-Regular Markdown syntax is not processed within code blocks. E.g.,
-asterisks are just literal asterisks within a code block. This means
-it's also easy to use Markdown to write about Markdown's own syntax.
+### Fenced — no language
 
 ```
-tell application "Foo"
-    beep
-end tell
+plain text block
+no syntax highlighting
 ```
 
-## Span Elements
+### Fenced — Bash
 
-### Links
+```bash
+#!/bin/bash
+echo "Hello, world!"
+for i in {1..5}; do
+    echo "Line $i"
+done
+```
 
-Markdown supports two style of links: *inline* and *reference*.
+### Fenced — Python
 
-In both styles, the link text is delimited by [square brackets].
+```python
+def greet(name: str) -> str:
+    return f"Hello, {name}!"
 
-To create an inline link, use a set of regular parentheses immediately
-after the link text's closing square bracket. Inside the parentheses,
-put the URL where you want the link to point, along with an *optional*
-title for the link, surrounded in quotes. For example:
+if __name__ == "__main__":
+    print(greet("world"))
+```
 
-This is [an example](http://example.com/) inline link.
+### Fenced — JavaScript
 
-[This link](http://example.net/) has no title attribute.
+```javascript
+const fetchData = async (url) => {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+};
+```
 
-### Emphasis
+### Fenced — JSON
 
-Markdown treats asterisks (`*`) and underscores (`_`) as indicators of
-emphasis. Text wrapped with one `*` or `_` will be wrapped with an
-HTML `<em>` tag; double `*`'s or `_`'s will be wrapped with an HTML
-`<strong>` tag. E.g., this input:
+```json
+{
+    "name": "test",
+    "version": "1.0.0",
+    "tags": ["markdown", "test", "rendering"],
+    "active": true,
+    "count": 42
+}
+```
 
-*single asterisks*
+---
 
-_single underscores_
+## Tables
 
-**double asterisks**
+### Basic
 
-__double underscores__
+| Column A | Column B | Column C |
+|----------|----------|----------|
+| Cell 1   | Cell 2   | Cell 3   |
+| Cell 4   | Cell 5   | Cell 6   |
 
-### Code
+### Alignment
 
-To indicate a span of code, wrap it with backtick quotes (`` ` ``).
-Unlike a pre-formatted code block, a code span indicates code within a
-normal paragraph. For example:
+| Left | Center | Right |
+|:-----|:------:|------:|
+| L    |   C    |     R |
+| text | text   |  text |
+| 1    |   2    |     3 |
 
-Use the `printf()` function.
+---
+
+## Links
+
+[Basic link](https://example.com)
+
+[Link with title](https://example.com "Example site")
+
+<https://example.com> (autolink)
+
+[Reference link][ref1]
+
+[ref1]: https://example.com "Reference"
+
+---
+
+## Images
+
+![Alt text placeholder](https://via.placeholder.com/400x200 "Placeholder image")
+
+---
+
+## Horizontal Rules
+
+Three variants:
+
+---
+
+***
+
+___
+
+---
+
+## Footnotes
+
+Here is a sentence with a footnote.[^1]
+
+Another sentence with a footnote.[^note]
+
+[^1]: This is footnote number one.
+[^note]: This is a named footnote.
+
+---
+
+## Definition Lists
+
+Term one
+:   Definition for term one.
+
+Term two
+:   First definition for term two.
+:   Second definition for term two.
+
+---
+
+## Superscript & Subscript
+
+Superscript: X^2^ or E=mc^2^
+
+Subscript: H~2~O
+
+---
+
+## Highlight
+
+==Highlighted text== (if supported)
+
+---
+
+## HTML Passthrough
+
+<details>
+<summary>Click to expand</summary>
+
+Hidden content revealed on click.
+
+</details>
+
+<br>
+
+<kbd>Ctrl</kbd> + <kbd>C</kbd> to copy.
+
+---
+
+## Escaping Special Characters
+
+\*not italic\* \`not code\` \[not a link\]
+
+Literal backslash: \\
+
+---
+
+## Long Content (Scroll / Overflow Test)
+
+This paragraph is intentionally long to test how your renderer handles line wrapping and paragraph spacing. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+### Long Unbroken String (Overflow Test)
+
+`averylongstringwithnospacestotestwhetheryourrendererapplieswordbreakproperlyorifitoverflowsthebounds`
+
+### Wide Table (Horizontal Scroll Test)
+
+| Col 1 | Col 2 | Col 3 | Col 4 | Col 5 | Col 6 | Col 7 | Col 8 |
+|-------|-------|-------|-------|-------|-------|-------|-------|
+| A     | B     | C     | D     | E     | F     | G     | H     |
+| 1     | 2     | 3     | 4     | 5     | 6     | 7     | 8     |
+
+---
+
+## Emoji
+
+:white_check_mark: :warning: :rocket: :tada: (if emoji shortcodes are supported)
+
+Unicode emoji directly: ✅ ⚠️ 🚀 🎉
+
+---
+
+## Mixed Formatting Edge Cases
+
+**Bold with `inline code` inside**
+
+*Italic with [a link](https://example.com) inside*
+
+> Blockquote with **bold**, *italic*, and `code` inside.
+
+- List item with **bold** and *italic* and `code`
+- List item with [a link](https://example.com)
+
+| Cell with **bold** | Cell with *italic* | Cell with `code` |
+|--------------------|--------------------|--------------------|
+| normal             | normal             | normal             |
